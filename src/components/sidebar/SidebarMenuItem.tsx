@@ -1,5 +1,7 @@
 'use client';
+
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 // ? Types
 import { ISidebarMenuItem } from '@/interfaces';
@@ -8,7 +10,7 @@ export const SidebarMenuItem = ({ icon, path, title }: ISidebarMenuItem) => {
   const pathname = usePathname();
 
   return (
-    <a
+    <Link
       href={path}
       className={`rounded w-full px-2 inline-flex space-x-2 items-center py-3 hover:bg-white/5 transition ease-linear duration-150 ${
         pathname === path ? 'bg-blue-900' : ''
@@ -20,6 +22,6 @@ export const SidebarMenuItem = ({ icon, path, title }: ISidebarMenuItem) => {
           {title}
         </span>
       </div>
-    </a>
+    </Link>
   );
 };
